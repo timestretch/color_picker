@@ -1,0 +1,49 @@
+/*
+ Color Picker CSS
+ By Erik Wrenholt 2015
+ MIT License
+*/
+
+canvas {
+	display: block;
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+
+#color_container {
+	visibility: hidden;
+	background-color: #EEE;
+	margin: 0 auto;
+	width: 320px;
+	height: 320px;
+}
+
+#color_box {
+	display: inline-box;
+	background-color: #00f;
+	margin: 10px;
+}
+
+#color_hue {
+	display: inline-box;
+	margin-top: 10px;
+}
+#color_old {
+	display: block;
+	width: 150px;
+	height: 40px;
+	margin-left: 10px;
+	margin-top: 10px;
+	background-color: #fff;
+	float: left;
+}
+#color_new{
+	display: block;
+	width: 150px;
+	height: 40px;
+	margin-left: 0;;
+	margin-top: 10px;
+	background-color: #FFF;
+	float: left;
+}

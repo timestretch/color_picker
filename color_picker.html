@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>Color Picker</title>
+<link rel="stylesheet" type="text/css" href="css/color_picker.css" media="screen" />
+<script src="js/color_picker.js"></script>
+<script>
+
+
+document.addEventListener("DOMContentLoaded", function(event) { 
+	
+	var color_picker = ColorPicker();
+	color_picker.init();
+	
+	var change_background = document.getElementById("change_background");
+	
+	change_background.onclick = function(e) {
+	
+		var params = {}
+		
+		// Initial color selection
+		params["color"] = document.body.style.background;
+		
+		// Called when user selects a new color
+		params["onselect"] = function(new_color) {
+			document.body.style.background = new_color;
+			color_picker.hidePicker();			
+		};
+
+		// Called when original color is clicked
+		params["oncancel"] = function() {
+			color_picker.hidePicker();
+		};
+	
+		color_picker.presentPickerWithColor(params);
+	}
+});
+
+</script>
+<style>
+body { font-family: Helvetica; }
+</style>
+</head>
+<body>
+
+<p><a href="#" id="change_background">Change Background Color</a></p>
+
+<!-- Begin Color Picker HTML -->
+
+<div id="color_container">
+	<div id="color_swatch">
+		<span id="color_old"></span>
+		<span id="color_new"></span>
+	</div>
+	<canvas id="color_box" width="250" height="250"></canvas>
+	<canvas id="color_hue" width="40" height="250"></canvas>
+</div>
+
+<!-- End Color Picker HTML -->
+
+</body>
+</html>
