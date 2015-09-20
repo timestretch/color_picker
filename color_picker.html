@@ -8,30 +8,33 @@
 
 document.addEventListener("DOMContentLoaded", function(event) { 
 	
-	var color_picker = ColorPicker();
-	color_picker.init();
+	var _color = [255,255,255];
+	
+	var _color_picker = ColorPicker();
 	
 	var change_background = document.getElementById("change_background");
 	
 	change_background.onclick = function(e) {
-	
-		var params = {}
-		
-		// Initial color selection
-		params["color"] = document.body.style.background;
-		
+					
 		// Called when user selects a new color
-		params["onselect"] = function(new_color) {
-			document.body.style.background = new_color;
-			color_picker.hidePicker();			
-		};
+		function onselect() {
+			_color = _color_picker.rgb_array();
+			console.log(_color);
+			document.body.style.background = _color_picker.rgb_string();
+			_color_picker.hidePicker();			
+		}
 
 		// Called when original color is clicked
-		params["oncancel"] = function() {
-			color_picker.hidePicker();
-		};
+		function oncancel() {
+			_color_picker.hidePicker();
+		}
 	
-		color_picker.presentPickerWithColor(params);
+		// pass in the initial color and callbacks
+		_color_picker.presentPickerWithColor({
+			rgb_array: _color,
+			onselect: onselect,
+			oncancel: oncancel
+		});
 	}
 });
 

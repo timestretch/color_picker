@@ -1,7 +1,7 @@
 Color Picker
 ------------
 
-Javascript Hue Saturation Value color picker that doesn't use any image assets.
+Javascript Hue Saturation Value color picker that doesn't use any image assets. It is made to work with HTML canvas elements, so it works primarily with RGB arrays with values between 0 and 255 like this: [255, 127, 0].
 
 ![Color Picker Screenshot](color_picker.png)
 
@@ -18,7 +18,6 @@ Files
 To Do
 -----
 
-- Pass an initial color in.
 - Add touch support.
 
 License
